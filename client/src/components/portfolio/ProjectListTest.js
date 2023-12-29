@@ -12,7 +12,7 @@ const ProjectListTest = () => {
 
     useEffect( () => {
         // http://127.0.0.1:5000/
-        axios.get("http://127.0.0.1:5000/").then((res) => (setData(res.data)))
+        axios.get("http://127.0.0.1:5000/portfolio").then((res) => (setData(res.data)))
     }, [])
 
     return (
@@ -22,7 +22,6 @@ const ProjectListTest = () => {
             </ul>
             <div className="projects">
                 {
-                    
                     data.map(item => {
                         return (
                             <Project 

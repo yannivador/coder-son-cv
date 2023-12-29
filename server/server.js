@@ -33,3 +33,70 @@ const portfolioData = [
       picture: './img-booking.png'
   }
 ]
+
+const userData = [
+    {
+        id: 1,
+        username: 'Yann',
+        surname: 'ROUSSEAU',
+        slogan: 'Ass is better',
+        mail: 'yann901@hotmail',
+        description: 'Text description',
+        reseau: ['linkedin', 'github']
+    },
+    {
+        id: 2,
+        username: 'Lova',
+        surname: 'RAHERI',
+        slogan: '',
+        mail: '',
+        description: 'Text description',
+        reseau: ['linkedin', 'github']
+    },
+    {
+        id: 3,
+        username: 'Gilles',
+        surname: 'Maillot',
+        slogan: '',
+        mail: '',
+        description: 'Text description',
+        reseau: ['linkedin', 'github']
+    }
+]
+
+const express = require('express');
+
+const app = express();
+
+const port = 5000;
+
+app.use(express.json());
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PUT, PATCH, OPTIONS"
+    );
+    next();
+  });
+
+app.get('/', (req, res) => {
+    res.send('Hello man !');
+})
+
+app.get('/portfolio', (req, res) => {
+    res.send(portfolioData);
+})
+
+app.get('/users', (req, res) => {
+    res.send(userData);
+})
+
+app.listen(port, () => {
+    console.log(`Server at running on port ${port}`)
+})

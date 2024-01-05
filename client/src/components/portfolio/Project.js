@@ -12,14 +12,9 @@ class Project extends Component {
         })
     )
 
-    // handleExit = () => (
-    //     this.setState(
-
-    //     )
-    // )
     
     render() {
-        // console.log(this.props); // Attention !! on utilise this car on n'a pas passé en paramètre le props
+        console.log(this.props); // Attention !! on utilise this car on n'a pas passé en paramètre le props
 
         // destructuration des données
         let {name, languages, source, info, picture} = this.props.item;
@@ -32,12 +27,13 @@ class Project extends Component {
                 <div className='languageContent'>
 
                 {
-                    languages.map(item=> {
-                        return (
-                            <span className='language'>{item} </span>
-                            )
-                        })
-                    }
+                    // languages.map(item=> {
+                    //     return (
+                    //         <span className='language'>{item} </span>
+                    //         )
+                    //     })
+                    console.log({languages})
+                }
                 </div>
                 <span className='info' onClick={this.handleInfo}>
                     <i className='fas fa-plus-circle' ></i>
@@ -53,11 +49,11 @@ class Project extends Component {
                                 <h3>Langages utilisées :</h3>
                                 <ul>
                                 {
-                                    languages.map(item=> {
-                                        return (
-                                            <li>{item}</li>
-                                            )
-                                        })
+                                    // languages.map(item=> {
+                                    //     return (
+                                    //         <li>{item}</li>
+                                    //         )
+                                    //     })
                                 }
                                 </ul>
                                 <div className='buttonContent'>

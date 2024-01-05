@@ -1,68 +1,4 @@
-
-const portfolioData = [
-    {
-        id: 1,
-        name: 'IRE',
-        languages: ['CSS', 'HTML'],
-        source: "dfgfdgfd",
-        info: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, animi quidem perferendis et at amet nulla dolorum natus odio ab qui pariatur eum iure cupiditate. Quis, magnam laudantium, animi aliquid esse vitae pariatur temporibus repellendus eligendi unde accusantium!z',
-        picture: './IRE.png'
-    },
-    {
-        id: 2,
-        name: 'Rando',
-        languages: ['CSS', 'Javascript', 'PHP', 'HTML', 'MYSQL'],
-        source: "dfgfdgfd",
-        info: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, animi quidem perferendis et at amet nulla dolorum natus odio ab qui pariatur eum iure cupiditate. Quis, magnam laudantium, animi aliquid esse vitae pariatur temporibus repellendus eligendi unde accusantium!z',
-        picture: './img-rando.png'
-    },
-    {
-        id: 3,
-        name: 'd-angle',
-        languages: ['CSS', 'HTML'],
-        source: "dfgfdgfd",
-        info: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, animi quidem perferendis et at amet nulla dolorum natus odio ab qui pariatur eum iure cupiditate. Quis, magnam laudantium, animi aliquid esse vitae pariatur temporibus repellendus eligendi unde accusantium!z',
-        picture: './d-angle.png'
-    },
-    {
-        id: 4,
-        name: 'Booking',
-        languages: ['CSS', 'Javascript', 'PHP', 'HTML', 'Mysql'],
-        source: "dfgfdgfd",
-        info: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, animi quidem perferendis et at amet nulla dolorum natus odio ab qui pariatur eum iure cupiditate. Quis, magnam laudantium, animi aliquid esse vitae pariatur temporibus repellendus eligendi unde accusantium!z',
-        picture: './img-booking.png'
-    }
-]
-
-const userData = [
-    {
-        id: 1,
-        username: 'Yann',
-        surname: 'ROUSSEAU',
-        slogan: 'Ass is better',
-        mail: 'yann901@hotmail',
-        description: 'Text description',
-        reseau: ['linkedin', 'github']
-    },
-    {
-        id: 2,
-        username: 'Lova',
-        surname: 'RAHERI',
-        slogan: '',
-        mail: '',
-        description: 'Text description',
-        reseau: ['linkedin', 'github']
-    },
-    {
-        id: 3,
-        username: 'Gilles',
-        surname: 'Maillot',
-        slogan: '',
-        mail: '',
-        description: 'Text description',
-        reseau: ['linkedin', 'github']
-    }
-]
+// const database = require("./database");
 
 const mysql = require('mysql');
 
@@ -73,20 +9,15 @@ const db = mysql.createConnection({
     database: "yannivador_coder-son-cv"
 });
 
+// Connexion à la base de données
 db.connect(function(err) {   
     if (err) throw err;   
-    console.log("Connecté à la base de données MySQL!"); 
+    console.log("Connecté à la base de données MySQL!");
 });
 
-// const sqlQuery = db.query('SELECT * FROM projects');
 
-db.query ('SELECT * FROM users ', (err, lignes) => {
-    if (err) throw err;
-  
-    console.log ('Données reçues de Db:');
-    console.log (lignes);
-})
 
+// ***** INITIALISATION SERVER ****
 
 const express = require('express');
 
@@ -109,17 +40,28 @@ app.use((req, res, next) => {
     next();
 });
 
+//  ******** LISTE DES ROUTES ************
+
 app.get('/', (req, res) => {
     res.send('Hello man !');
 })
 
 app.get('/portfolio', (req, res) => {
-    res.send(portfolioData);
+    // res.send(portfolioData);
+    db.query("SELECT * FROM projects ", function (err, result) {       
+        if (err) throw err;       
+        res.send(result);
+    }); 
 })
 
 app.get('/users', (req, res) => {
-    res.send(userData);
+    db.query("SELECT * FROM users ", function (err, result) {       
+        if (err) throw err;       
+        res.send(result);
+    }); 
 })
+
+//  ******** LISTEN ************
 
 app.listen(port, () => {
     console.log(`Server at running on port ${port}`)

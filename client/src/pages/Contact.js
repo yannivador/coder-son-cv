@@ -20,12 +20,11 @@ const Contact = () => {
                     data.map(item => {
                         return (
                             <div>
-                                <li>{item.id}</li>
-                                <li>{item.username}</li>
+                                <li>{item.name}</li>
                                 <li>{item.surname}</li>
                                 <li>{item.slogan}</li>
                                 <li>{item.mail}</li>
-                                <li>{item.description}</li>
+                                <li>{item.descrip}</li>
                             </div>
                         )
                         

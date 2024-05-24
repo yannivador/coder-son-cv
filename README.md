@@ -1,9 +1,20 @@
 
 # Coder-son-CV
-Code exemple pour Projet Gilles-lova
 
 ## Dépot : https://github.com/yannivador/coder-son-cv.git 
 Branche en cours : CV-with-mysql
+dernière mise à jour : 24/05/2024
+
+## Lancer le server de données
+Se placer dans le dossier puis lancer le server : 
+cd server
+node server.js
+
+## Lancer le front 
+cd client
+npm start
+
+
 
 ## Structure 
 4 pages : 

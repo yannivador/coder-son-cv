@@ -42,20 +42,22 @@ app.use((req, res, next) => {
 
 //  ******** LISTE DES ROUTES ************
 
+const id = "1";
+
 app.get('/', (req, res) => {
     res.send('Hello man !');
 })
 
 app.get('/portfolio', (req, res) => {
     // res.send(portfolioData);
-    db.query("SELECT * FROM projects ", function (err, result) {       
+    db.query("SELECT * FROM projects WHERE user_id=? ", id, function (err, result) {       
         if (err) throw err;       
         res.send(result);
     }); 
 })
 
 app.get('/users', (req, res) => {
-    db.query("SELECT * FROM users ", function (err, result) {       
+    db.query("SELECT * FROM users WHERE id=? ", id, function (err, result) {       
         if (err) throw err;       
         res.send(result);
     }); 

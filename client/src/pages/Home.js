@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation';
+import axios from 'axios';
 
 const Home = () => {
+    // Récupère les infos
+    const [data, setData] = useState([]);
+
+    useEffect( () => {
+        axios.get("http://127.0.0.1:5000/users").then((res) => (setData(res.data)))
+    }, [])
+
+    // Comment afficher les résultats
     return (
         <div className="home">
             <Navigation />
             <div className="homeContent">
                 <div className='content'>
-                    <h1>Jean Ichigo</h1>
-                    <h2>Développeur Shinigami</h2>
+                    {
+                        data.map(item => {
+                            return (
+                                <div>
+                                    <h1>{item.name}</h1>
+                                    <h2>{item.surname}</h2>
+                                </div>
+                            )
+                        })
+                    }
+                    
                 </div>
             </div>
         </div>

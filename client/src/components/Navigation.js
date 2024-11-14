@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 const Navigation = () => {
+    // Récupère les infos
+    const [data, setData] = useState([]);
+
+    useEffect( () => {
+        axios.get("http://127.0.0.1:5000/users").then((res) => (setData(res.data)))
+    }, [])
+
     return (
         <div className='sidebar'>
             <div className='id'>
                 <div className="idContent">
                     <img src='logo192.png' alt='img' />
                     {/* <img src='logo192.png' alt='img' /> */}
-                    <h3>Jean Ichigo</h3>
+                    
+                    {
+                        data.map(item => {
+                            return (
+                                <h3>{item.name} {item.surname}</h3>
+                            )
+                        })
+                    }
                 </div>
             </div>
 

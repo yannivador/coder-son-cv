@@ -22,7 +22,7 @@ class Project extends Component {
 
         return (
             <div className='project'>
-                <h3>{name}</h3>
+                <h3>{name}</h3> 
                 <img src={picture} alt="" />
                 <div className='languageContent'>
 
@@ -57,9 +57,9 @@ class Project extends Component {
                                 }
                                 </ul>
                                 <div className='buttonContent'>
-                                    <a href={source} rel='noopener noreferrer' target='_blank' className='button'>Code source</a>
+                                    <a href={source} rel='noopener noreferrer' target='_blank' className='button'>Lien Github</a>
                                     <span className='closeInfo' onClick={this.handleInfo}>
-                                        Retourner sur la page
+                                        Quitter
                                     </span>
                                 </div>
                             </div>

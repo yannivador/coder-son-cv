@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navigation from '../components/Navigation';
+import axios from 'axios';
 
 const About = () => {
+    // Récupère les infos
+    const [data, setData] = useState([]);
+
+    useEffect( () => {
+        axios.get("http://127.0.0.1:5000/users").then((res) => (setData(res.data)))
+    }, [])
+
+    // Comment afficher les résultats
     return (
         <div className='about'>
             <Navigation />

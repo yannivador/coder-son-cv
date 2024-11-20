@@ -14,7 +14,7 @@ const Navigation = () => {
         <div className='sidebar'>
             <div className='id'>
                 <div className="idContent">
-                    <img src='logo192.png' alt='img' />
+                    <img src='photo-profil.jpg' alt='profil' />
                     {/* <img src='logo192.png' alt='img' /> */}
                     
                     {
@@ -72,10 +72,7 @@ const Navigation = () => {
                         <a href='https://linkedin.com/' target='_blank' rel='noopener noreferrer'><i className='fab fa-linkedin'></i></a>
                     </li>
                     <li>
-                        <a href='https://github.com/' target='_blank' rel='noopener noreferrer'><i className='fab fa-github'></i></a>
-                    </li>
-                    <li>
-                        <a href='https://linkedin.com/' target='_blank' rel='noopener noreferrer'><i className='fab fa-linkedin'></i></a>
+                        <a href='https://instagram.com/' target='_blank' rel='noopener noreferrer'><i className='fab fa-instagram'></i></a>
                     </li>
                 </ul>
             </div>

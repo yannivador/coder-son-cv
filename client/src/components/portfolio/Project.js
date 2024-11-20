@@ -12,9 +12,13 @@ class Project extends Component {
         })
     )
 
+    fonctionTest = () => (
+        console.log("ok")
+    )
+
     
     render() {
-        console.log(this.props); // Attention !! on utilise this car on n'a pas passé en paramètre le props
+        // console.log(this.props); // Attention !! on utilise this car on n'a pas passé en paramètre le props
 
         // destructuration des données
         let {name, languages, source, info, picture} = this.props.item;
@@ -22,18 +26,27 @@ class Project extends Component {
 
         return (
             <div className='project'>
+                <img src={picture} alt={picture} />
                 <h3>{name}</h3> 
-                <img src={picture} alt="" />
                 <div className='languageContent'>
 
+                <p>{languages}{this.fonctionTest}</p>
+
                 {
-                    // languages.map(item=> {
+                    // languages_info.map(item=> {
                     //     return (
-                    //         <span className='language'>{item} </span>
+                    //         <li>{item}</li>
                     //         )
-                    //     })
-                    console.log({languages})
+                    // })
+                    
+                    // this.fonctionTest(item => {
+                    //     return (
+                    //         <h3>{item}</h3>
+                    //     )
+                    // })
+                    
                 }
+                
                 </div>
                 <span className='info' onClick={this.handleInfo}>
                     <i className='fas fa-plus-circle' ></i>

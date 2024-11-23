@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Progressbar from './Progressbar';
+import Progressbar from '../Progressbar';
 
 class Languages extends Component {
     // Données dans state 

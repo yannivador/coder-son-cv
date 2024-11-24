@@ -1,23 +1,34 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
+import axios from "axios";
 
 const Experiences = () => {
+
+    const [data, setData] = useState([]);
+
+    useEffect( () => {
+        // http://127.0.0.1:5000/
+        axios.get("http://127.0.0.1:5000/experience").then((res) => (setData(res.data)))
+    }, [])
+
+
     return (
         <div className='experience'>
             <h3>Experiences</h3>
-            <div className='exp1'>
-                <h4>Lorem ipsum dolor </h4>
-                <h5>2018-2019</h5>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, voluptatibus? Exercitationem est ad, rerum impedit repudiandae ratione, cumque, consequuntur fugit sequi consequatur voluptatum alias deserunt error maiores? Odit.
-                </p>
-            </div>
-            <div className='exp2'>
-                <h4>Lorem ipsum dolor </h4>
-                <h5>2018-2019</h5>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, voluptatibus? Exercitationem est ad, rerum impedit repudiandae ratione, cumque, consequuntur fugit sequi consequatur voluptatum alias deserunt error maiores? Odit.
-                </p>
-            </div>
+            {
+                data.map(item => {
+                    return (
+                        <div className='exp'>
+                            {/* <p>{item.id}</p> */}
+                            <h4>{item.date}</h4>
+                            <p>{item.name}</p>
+                            <p>{item.entreprise}</p>
+                            <p>{item.description}</p>
+                        </div>
+                    )
+                })
+            }
+            
         </div>
     );
 };

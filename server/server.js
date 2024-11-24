@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 
 //  ******** LISTE DES ROUTES ************
 
-const id = "1";
+const id = "1";   // Ici on place l'id de l'utilisateur : 1 pour Yann ROUSSEAU
 
 app.get('/', (req, res) => {
     res.send('Hello man !');
@@ -58,6 +58,13 @@ app.get('/portfolio', (req, res) => {
 
 app.get('/users', (req, res) => {
     db.query("SELECT * FROM users WHERE id=? ", id, function (err, result) {       
+        if (err) throw err;       
+        res.send(result);
+    }); 
+})
+
+app.get('/experience', (req, res) => {
+    db.query("SELECT * FROM experience WHERE user_id=? ", id, function (err, result) {       
         if (err) throw err;       
         res.send(result);
     }); 

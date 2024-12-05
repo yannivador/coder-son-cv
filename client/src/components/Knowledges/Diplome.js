@@ -2,29 +2,28 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 
-const Experiences = () => {
+const Diplome = () => {
 
     const [data, setData] = useState([]);
 
     useEffect( () => {
         // http://127.0.0.1:5000/
-        axios.get("http://127.0.0.1:5000/experience").then((res) => (setData(res.data)))
+        axios.get("http://127.0.0.1:5000/diplome").then((res) => (setData(res.data)))
     }, [])
 
 
     return (
-        <div className='experience'>
-            <h3>Experiences</h3>
+        <div className='diplome'>
+            <h3>Diplôme</h3>
             {
                 data.map(item => {
                     return (
-                        <div className='exp'>
-                            {/* <p>{item.id}</p> */}
-                            <h4>{item.date}</h4>
+                        <div className='dipl'>
+                            <h4>{item.niveau} </h4>
                             <p>{item.name}</p>
-                            <p>{item.entreprise}</p>
+                            <p>{item.ecole} - {item.lieu}</p>
                             <p>{item.description}</p>
-                            <br />
+                            <br/>
                         </div>
                     )
                 })
@@ -34,4 +33,4 @@ const Experiences = () => {
     );
 };
 
-export default Experiences;
+export default Diplome;

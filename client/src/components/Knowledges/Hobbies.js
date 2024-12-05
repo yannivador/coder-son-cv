@@ -1,6 +1,4 @@
 import React from 'react';
-// import { portfolioData } from '../data/portfolioData';
-// import Hobbies_test from './Hobbies_test';
 
 
 const Hobbies = () => {

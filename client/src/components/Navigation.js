@@ -44,13 +44,13 @@ const Navigation = () => {
                     <li>
                         <NavLink to="/knowledges">
                             <i className='fas fa-mountain'></i>
-                            <span>Compétences</span>
+                            <span>Mon CV</span>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to="/portfolio">
                             <i className='fas fa-images'></i>
-                            <span>Mes projets</span>
+                            <span>Projets web</span>
                         </NavLink>
                     </li>
                     <li>

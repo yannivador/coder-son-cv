@@ -70,6 +70,13 @@ app.get('/experience', (req, res) => {
     }); 
 })
 
+app.get('/diplome', (req, res) => {
+    db.query("SELECT * FROM diplome WHERE user_id=? ", id, function (err, result) {       
+        if (err) throw err;       
+        res.send(result);
+    }); 
+})
+
 //  ******** LISTEN ************
 
 app.listen(port, () => {

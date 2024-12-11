@@ -77,6 +77,13 @@ app.get('/diplome', (req, res) => {
     }); 
 })
 
+app.get('/hobbies', (req, res) => {
+    db.query("SELECT * FROM centre_interet WHERE user_id=? ", id, function (err, result) {       
+        if (err) throw err;       
+        res.send(result);
+    }); 
+})
+
 //  ******** LISTEN ************
 
 app.listen(port, () => {
